@@ -1,3 +1,7 @@
-for i in range(10):
-    print(i)
-#changed
+class myclass:
+    def __init__(self, *args):
+        self.var='hello'
+        print('myclass : instant var is created')
+
+obj=myclass()
+print(obj.var)
