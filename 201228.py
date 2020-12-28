@@ -20,3 +20,15 @@ print(ret2) #Report.pptx가 출력
 names={'Mary':10999, 'Sams':2111, 'Aimy':9778, 'Tom':20245, 'Michale':27115, 'Bob':5887, 'Kelly':7855}
 ret3=sorted(names.items(), key=lambda x:x[0])
 print(ret3)
+
+#인자를 바꾸어 함수를 반복 호출하여 결과값 얻기(map)
+f=lambda x:x+x
+args=[1,2,3,4,5]
+ret=map(f, args)
+print(list(ret))
+
+f=lambda x,y:x*x+y
+X=[1,2,3,4,5]
+Y=[10,9,8,7,6]
+ret=map(f,X,Y)
+print(list(ret))
