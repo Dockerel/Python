@@ -19,7 +19,7 @@ def runGame():
             if event.type == pygame.QUIT:
                 ongame = True
 
-        # 게임 화면을 검은색으로 채우고 화면을 업데이터 함
+        # 게임 화면을 검은색으로 채우고 화면을 업데이트 함
         gamepad.fill(BLACK)
         pygame.display.update()
         clock.tick(60)
@@ -34,8 +34,8 @@ def initGame():
 
     pygame.init()
     gamepad = pygame.display.set_mode((pad_width, pad_height))
-    pygame.display.set_caption('MyGalaga')
     clock = pygame.time.Clock()
+    pygame.display.set_caption('MyGalaga')
 
 
 initGame()
