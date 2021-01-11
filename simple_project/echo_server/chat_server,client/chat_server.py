@@ -18,7 +18,7 @@ class UserManager:
         # 새로운 사용자를 등록
         lock.acquire()
         self.users[username] = (conn, addr)
-        lock.release
+        lock.release()
 
         self.sendMessageToAll('[%s]님이 입장했습니다.' % username)
         print('+++ 대화 참여자 수 [%d]' % len(self.users))
