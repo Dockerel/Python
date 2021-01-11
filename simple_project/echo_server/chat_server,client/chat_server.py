@@ -1,4 +1,5 @@
-import socketserverimport threading
+import socketserver
+import threading
 
 HOST = ''
 PORT = 9009
@@ -45,7 +46,7 @@ class UserManager:
             return -1
 
     def sendMessageToAll(self, msg):
-        for conn, addr in self.users.values():
+        for conn, _ in self.users.values():
             conn.send(msg.encode())
 
 
@@ -72,7 +73,7 @@ class MyTcpHandler(socketserver.BaseRequestHandler):
         self.userman.removeUser(username)
 
     def registerUsername(self):
-        while Ture:
+        while True:
             self.request.send('로그인ID:'.encode())
             username = self.request.recv(1024)
             username = username = username.decode().strip()
@@ -89,12 +90,12 @@ def runServer():
     print('+++ 채팅 서버를 끝내려면 Ctrl+C를 누르세요.')
 
     try:
-        server = Chatingserver((HOST, PORT), MyTcpHandler)
+        server = ChatingServer((HOST, PORT), MyTcpHandler)
         server.serve_forever()
-        except KeyboardInterrupt:
-            print('--- 채팅 서버를 종료합니다.')
-            server.shutdown()
-            server.server_close()
+    except KeyboardInterrupt:
+        print('--- 채팅 서버를 종료합니다.')
+        server.shutdown()
+        server.server_close()
 
 
 runServer()
